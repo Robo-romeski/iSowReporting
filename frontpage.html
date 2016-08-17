@@ -1,0 +1,61 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+ 
+
+	</head>
+	<body>
+	
+		<div class="report container">
+		<h1>Reporting</h1>
+			<table id="myTable" class="display table table-striped table-bordered"> 
+<thead>
+            <tr>
+                <th>name</th>
+                <th>email</th>
+              
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>name</th>
+                <th>email</th>
+              
+            </tr>
+        </tfoot>
+			</table>
+
+			<h1>Hello Analytics</h1>
+
+			<button id="auth-button" hidden>Authorize</button>
+
+
+
+<textarea cols="80" rows="20" id="query-output"></textarea>
+<br>
+<br>
+		</div>
+
+        
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="DataTables/datatables.js"></script>
+		
+		<script src="js/google.js"></script>
+		<script src="https://apis.google.com/js/client.js?onload=authorize"></script> 
+		<script>
+			$(function () {
+				$('#myTable').DataTable({
+                    "processing":true,
+                    "serverSide":true,
+                    "ajax":"server_process.php"
+					});
+				
+			});
+		</script>
+	</body>
+</html>
