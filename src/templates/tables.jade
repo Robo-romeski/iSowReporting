@@ -1,0 +1,50 @@
+extends ./layout.jade
+block content
+  #page-wrapper
+        .container-fluid
+          // Page Heading
+          .row
+            .col-lg-12
+              h1.page-header
+                | Tables
+              ol.breadcrumb
+                li
+                  i.fa.fa-dashboard
+                  a(href='index.html') Dashboard
+                li.active
+                  i.fa.fa-table
+                  |  Tables
+          // /.row
+          .report.container
+            h1 Reporting
+            table#myTable.display.table.table-striped.table-bordered
+              thead
+                tr
+                  th name
+                  th email
+              tfoot
+                tr
+                  th name
+                  th email
+        // /.container-fluid
+      // /#page-wrapper
+    // /#wrapper
+    // jQuery
+    script(src='js/jquery.js')
+    // Angular
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(type='text/javascript', src='DataTables/datatables.js')
+    script.
+      $(function () {
+      $('#myTable').DataTable({
+      "processing":true,
+      "serverSide":true,
+      "ajax":"php/server_process.php"
+      });
+      });
+|       }
+

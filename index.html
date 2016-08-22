@@ -12,16 +12,16 @@
     <title>Reporting</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="src/public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="src/public/css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="src/public/css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="src/public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -412,7 +412,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
+                                   <!--  <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Order #</th>
@@ -471,7 +471,17 @@
                                                 <td>$943.45</td>
                                             </tr>
                                         </tbody>
-                                    </table>
+                                    </table> -->
+                                    <div ng-app="myApp" ng-controller="customersCtrl"> 
+
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ x.fname }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+
+</div>
                                 </div>
                                 <div class="text-right">
                                     <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
@@ -492,17 +502,18 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="src/public/js/jquery.js"></script>
 <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="src/public/js/bootstrap.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-    <script src="js/google.js"></script>
+    <script src="src/public/js/plugins/morris/raphael.min.js"></script>
+    <script src="src/public/js/plugins/morris/morris.min.js"></script>
+    <script src="src/public/js/plugins/morris/morris-data.js"></script>
+    <script src="src/public/js/google.js"></script>
+    <script src="src/public/js/dbquery.js" ></script>
     <script src="https://apis.google.com/js/client.js?onload=authorize"></script>
 
 </body>

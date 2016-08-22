@@ -1,0 +1,30 @@
+{
+  "name": "report",
+  "version": "1.0.0",
+  "description": "iSow reporting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robo-romeski/iSowReporting.git"
+  },
+  "keywords": [
+    "iSow"
+  ],
+  "author": "Jerome Moore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Robo-romeski/iSowReporting/issues"
+  },
+  "homepage": "https://github.com/Robo-romeski/iSowReporting#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "express": "^4.14.0",
+    "fontawesome": "^4.5.0",
+    "jade": "^1.11.0",
+    "jquery": "^3.1.0",
+    "mysql": "^2.11.1"
+  }
+}
