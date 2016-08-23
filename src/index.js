@@ -21,23 +21,11 @@ var connection = mysql.createConnection({
      console.log("Error connecting database ... \n\n");  
  }
  });
- 
-//   connection.query('SELECT * from user LIMIT 1', function(error, results, fields){
-//     if(error){
-//       throw error;
-//     }else{
-//     //res.json({results});
-//     console.log(results);
-//     users = results;
-//     connection.end();
-
-// }
-//   });
 
  app.get('/', function(req, res){
 connection.query('SELECT * from user LIMIT 1', function(error, results, fields){
       console.log(results);
-      res.render('index', {data: JSON.stringify(results)});
+      res.render('index', {data: results});
     });
 connection.end();
  });
