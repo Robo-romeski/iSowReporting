@@ -1,6 +1,6 @@
 var express = require('express');
 var mysql      = require('mysql');
-var connection = mysql.createConnection({
+var pool = mysql.createPool({
    host     : 'internal-db.s203720.gridserver.com',
    user     : 'db203720_report',
    password : 'nYi8nr-Z8]@',
@@ -14,20 +14,26 @@ var connection = mysql.createConnection({
  app.set('view engine', 'jade');
  app.set('views', __dirname + '/templates');
 
- connection.connect(function(err){
- if(!err) {
-     console.log("Database is connected ... \n\n");  
- } else {
-     console.log("Error connecting database ... \n\n");  
- }
- });
+ // connection.connect(function(err){
+ // if(!err) {
+ //     console.log("Database is connected ... \n\n");  
+ // } else {
+ //     console.log("Error connecting database ... \n\n");  
+ // }
+ // });
 
  app.get('/', function(req, res){
-connection.query('SELECT * from user LIMIT 1', function(error, results, fields){
+  pool.getConnection(function(err, connection){
+    if (err) {
+      console.log('error connecting to database');
+    }else{
+connection.query('SELECT * from user LIMIT 6', function(error, results, fields){
       console.log(results);
       res.render('index', {data: results});
     });
-connection.end();
+}
+connection.release();
+});
  });
  app.get('/charts',function(req,res) {
 

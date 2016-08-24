@@ -68,13 +68,13 @@ $(function() {
     Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
-            label: "Download Sales",
+            label: "Waterkeeper's Alliance",
             value: 12
         }, {
-            label: "In-Store Sales",
+            label: "Save the Children",
             value: 30
         }, {
-            label: "Mail-Order Sales",
+            label: "Association to Benefit Children",
             value: 20
         }],
         resize: true
