@@ -124,7 +124,6 @@ function queryCoreReportingApi(profileId) {
   .then(function(response) {
     var formattedJson = JSON.stringify(response.result, null, 1);
     console.log(formattedJson);
-    
     var returnHTML = '<ul class="bullets">';
     returnHTML+= '<li>'+response.result.itemsPerPage+'</li>';
     returnHTML+= ''

@@ -28,9 +28,10 @@ var pool = mysql.createPool({
     if (err) {
       console.log('error connecting to database');
     }else{
-connection.query('SELECT * from user ORDER BY user.created DESC LIMIT 10; SELECT count(id) as total FROM user; SELECT * from user WHERE contribution is not null; SELECT DISTINCT * FROM  invest ORDER BY  invest.amount DESC LIMIT 10', function(error, results, fields){
-      //console.log(results[0]);
-      res.render('index', {data: results[3], total:results[0] });
+connection.query('SELECT * from user ORDER BY user.created DESC LIMIT 10; SELECT count(id) as total FROM user; SELECT * from user WHERE contribution is not null; SELECT * from user WHERE email = "jmoore@romecode.com"; SELECT DISTINCT * FROM  invest ORDER BY  invest.amount DESC LIMIT 10; SELECT AVG( amount ), AVG( status ) FROM project', function(error, results, fields){
+      console.log(results[3]);
+      console.log(results[5]);
+      res.render('index', {data: results[4], total:results[0] });
     });
 }
 connection.release();
@@ -46,6 +47,19 @@ connection.release();
 
   res.render('tables');
      
+ });
+
+ app.get('/rows', function (req,res) {
+   pool.getConnection(function (error, connection) {
+     if (error) {
+     console.log('connection bad');
+     }else{
+   connection.query('SELECT * from user', function(error, results, fields){
+    res.send(results);
+   });
+   }
+   });
+
  });
  
 
