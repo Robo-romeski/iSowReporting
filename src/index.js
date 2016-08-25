@@ -54,7 +54,8 @@ connection.release();
      if (error) {
      console.log('connection bad');
      }else{
-   connection.query('SELECT * from user', function(error, results, fields){
+   connection.query('SELECT name, email from user', function(error, results, fields){
+    console.log(results);
     res.send(results);
    });
    }
