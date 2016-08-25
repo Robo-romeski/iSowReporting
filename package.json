@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Robo-romeski/iSowReporting#readme",
   "dependencies": {
     "angular": "^1.5.8",
+    "chart.js": "^2.2.1",
     "express": "^4.14.0",
     "fontawesome": "^4.5.0",
     "jade": "^1.11.0",

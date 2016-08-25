@@ -28,9 +28,9 @@ var pool = mysql.createPool({
     if (err) {
       console.log('error connecting to database');
     }else{
-connection.query('SELECT * from user LIMIT 6; SELECT count(id) as total FROM user; SELECT * from user WHERE contribution is not null;', function(error, results, fields){
-      console.log(results[2]);
-      res.render('index', {data: results[0], total:results[1] });
+connection.query('SELECT * from user ORDER BY user.created DESC LIMIT 10; SELECT count(id) as total FROM user; SELECT * from user WHERE contribution is not null; SELECT DISTINCT * FROM  invest ORDER BY  invest.amount DESC LIMIT 10', function(error, results, fields){
+      //console.log(results[0]);
+      res.render('index', {data: results[3], total:results[0] });
     });
 }
 connection.release();
