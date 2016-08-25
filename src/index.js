@@ -4,7 +4,8 @@ var pool = mysql.createPool({
    host     : 'internal-db.s203720.gridserver.com',
    user     : 'db203720_report',
    password : 'nYi8nr-Z8]@',
-   database : 'db203720_sow'
+   database : 'db203720_sow',
+   multipleStatements: true
  });
  var users;
  var app = module.exports = express();
@@ -27,9 +28,9 @@ var pool = mysql.createPool({
     if (err) {
       console.log('error connecting to database');
     }else{
-connection.query('SELECT * from user LIMIT 6', function(error, results, fields){
-      console.log(results);
-      res.render('index', {data: results});
+connection.query('SELECT * from user LIMIT 6; SELECT count(id) as total FROM user; SELECT * from user WHERE contribution is not null;', function(error, results, fields){
+      console.log(results[2]);
+      res.render('index', {data: results[0], total:results[1] });
     });
 }
 connection.release();
@@ -48,4 +49,6 @@ connection.release();
  });
  
 
- app.listen(8080);
+ app.listen(8080, function(){
+  console.log('Server up and running on localhost:8080');
+ });
