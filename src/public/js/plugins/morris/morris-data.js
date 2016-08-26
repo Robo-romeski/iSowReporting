@@ -4,7 +4,7 @@ $(function() {
 
     // Area Chart
     Morris.Area({
-        element: 'morris-area-chart',
+        element: 'morris-area-charts',
         data: [{
             period: '2010 Q1',
             Causes: 2666,
@@ -66,15 +66,15 @@ $(function() {
 
     // Donut Chart
     Morris.Donut({
-        element: 'morris-donut-chart',
+        element: 'morris-donut-charts',
         data: [{
-            label: "Download Sales",
+            label: "Waterkeeper's Alliance",
             value: 12
         }, {
-            label: "In-Store Sales",
+            label: "Save the Children",
             value: 30
         }, {
-            label: "Mail-Order Sales",
+            label: "Association to Benefit Children",
             value: 20
         }],
         resize: true

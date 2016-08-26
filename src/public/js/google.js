@@ -124,20 +124,20 @@ function queryCoreReportingApi(profileId) {
   .then(function(response) {
     var formattedJson = JSON.stringify(response.result, null, 1);
     console.log(formattedJson);
-     Morris.Donut({
-        element: 'morris-donut-charts',
-        data: [{
-            label: "Waterkeeper's Alliance",
-            value: 30
-        }, {
-            label: "Save the Children",
-            value: 30
-        }, {
-            label: "Association to Benefit Children",
-            value: 20
-        }],
-        resize: true
-    });
+    //  Morris.Donut({
+    //     element: 'morris-donut-charts',
+    //     data: [{
+    //         label: "Waterkeeper's Alliance",
+    //         value: 30
+    //     }, {
+    //         label: "Save the Children",
+    //         value: 30
+    //     }, {
+    //         label: "Association to Benefit Children",
+    //         value: 20
+    //     }],
+    //     resize: true
+    // });
 
 
 
