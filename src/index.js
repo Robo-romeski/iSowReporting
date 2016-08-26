@@ -71,6 +71,6 @@ connection.release();
  });
  
 
- app.listen(8080, function(){
+ app.listen(process.env.PORT || 8080, function(){
   console.log('Server up and running on localhost:8080');
  });
