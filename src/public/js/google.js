@@ -117,13 +117,27 @@ function queryCoreReportingApi(profileId) {
   // the past seven days.
   gapi.client.analytics.data.ga.get({
     'ids': 'ga:' + profileId,
-    'start-date': '7daysAgo',
+    'start-date': '30daysAgo',
     'end-date': 'today',
     'metrics': 'ga:sessions,ga:bounceRate,ga:pageviews,ga:sessionDuration'
   })
   .then(function(response) {
     var formattedJson = JSON.stringify(response.result, null, 1);
     console.log(formattedJson);
+     Morris.Donut({
+        element: 'morris-donut-charts',
+        data: [{
+            label: "Waterkeeper's Alliance",
+            value: 30
+        }, {
+            label: "Save the Children",
+            value: 30
+        }, {
+            label: "Association to Benefit Children",
+            value: 20
+        }],
+        resize: true
+    });
     var returnHTML = '<ul class="bullets">';
     returnHTML+= '<li>'+response.result.itemsPerPage+'</li>';
     returnHTML+= ''

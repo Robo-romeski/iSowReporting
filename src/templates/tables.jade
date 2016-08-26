@@ -6,7 +6,7 @@ block content
           .row
             .col-lg-12
               h1.page-header
-                | Tables
+                | Table Database Records
               ol.breadcrumb
                 li
                   i.fa.fa-dashboard
@@ -16,7 +16,6 @@ block content
                   |  Tables
           // /.row
           .report.container
-            h1 Reporting
             table#myTable.display.table.table-striped.table-bordered
               thead
                 tr
@@ -37,17 +36,18 @@ block content
     script(src='js/bootstrap.min.js')
     //script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-    //script(type='text/javascript', src='DataTables/datatables.js')
-    script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.js')
+    script(type='text/javascript', src='js/plugins/DataTables/datatables.js')
+    //script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.js')
     script.
       $(function () {
       $('#myTable').DataTable({
       processing : true,
-      serverSide :true,
+      serverSide : true,
+      sAjaxDataProp : "",
       ajax:{
         url: "/rows",
         dataSrc: ""},
-      "columns": [{data: "name"},
+      columns: [{data: "name"},
                   {data: "email"}
                   ] 
       });

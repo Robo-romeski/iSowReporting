@@ -28,10 +28,16 @@ var pool = mysql.createPool({
     if (err) {
       console.log('error connecting to database');
     }else{
-connection.query('SELECT * from user ORDER BY user.created DESC LIMIT 10; SELECT count(id) as total FROM user; SELECT * from user WHERE contribution is not null; SELECT * from user WHERE email = "jmoore@romecode.com"; SELECT DISTINCT * FROM  invest ORDER BY  invest.amount DESC LIMIT 10; SELECT AVG( amount ), AVG( status ) FROM project', function(error, results, fields){
-      console.log(results[3]);
-      console.log(results[5]);
-      res.render('index', {data: results[4], total:results[0] });
+connection.query('SELECT * from user ORDER BY user.created DESC LIMIT 1; SELECT count(DISTINCT id) as total FROM user; SELECT * from user WHERE contribution is not null; SELECT ROUND(AVG ( amount ), 0) AS amount FROM cost; SELECT DISTINCT * FROM  invest ORDER BY  invest.amount DESC LIMIT 1; SELECT ROUND(AVG( amount ), 0) AS amount, AVG( days ) AS days FROM project; SELECT COUNT( user ) AS childBear FROM invest WHERE child IS NOT NULL; SELECT AVG( YEAR(now()) - YEAR(dob) ) as avg FROM user_personal WHERE dob IS NOT NULL', function(error, results, fields){
+      console.log(results[0]);// all from user
+      console.log(results[1]);// count of users
+      console.log(results[2]);// not null contributions
+      console.log(results[3]);// ave from cost
+      console.log(results[4]);// all distinct from invest - high gross
+      console.log(results[5]);// average amount and time sow
+      console.log(results[6]);// users with children
+      console.log(results[7]);// average ages of sower
+      res.render('index', {total:results[0], queone:results[1], quetwo: results[2], quethree: results[3], data: results[4], average:results[5], quesix: results[6], queseven: results[7] });
     });
 }
 connection.release();
@@ -54,7 +60,7 @@ connection.release();
      if (error) {
      console.log('connection bad');
      }else{
-   connection.query('SELECT name, email from user', function(error, results, fields){
+   connection.query('SELECT name, email from user LIMIT 10', function(error, results, fields){
     //console.log(results);
     res.send(results);
    });
