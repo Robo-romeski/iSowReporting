@@ -4,7 +4,7 @@ $(function() {
 
     // Area Chart
     Morris.Area({
-        element: 'morris-area-charts',
+        element: 'morris-area-chart',
         data: [{
             period: '2010 Q1',
             Causes: 2666,
