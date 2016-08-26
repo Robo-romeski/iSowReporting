@@ -138,9 +138,110 @@ function queryCoreReportingApi(profileId) {
         }],
         resize: true
     });
-    var returnHTML = '<ul class="bullets">';
-    returnHTML+= '<li>'+response.result.itemsPerPage+'</li>';
-    returnHTML+= ''
+
+
+
+
+    // var returnHTML = '<ul class="bullets">';
+    // returnHTML+= '<li>'+response.result.itemsPerPage+'</li>';
+    // returnHTML+= ''
+
+    var returnHTML =  '<div class="row">';
+    returnHTML+= '<div class="col-lg-3 col-md-6">';
+        returnHTML+= '<div class="panel panel-primary">';
+            returnHTML+= '<div class="panel-heading">';
+                returnHTML+= '<div class="row">';
+                    returnHTML+= '<div class="col-xs-3">';
+                        returnHTML+= '<i class="fa fa-comments fa-5x">';
+                          returnHTML+= '</i>';
+                    returnHTML+= '</div>';
+                    returnHTML+= '<div class="col-xs-9 text-right">';
+                        returnHTML+= '<div class="huge">'+response.result.totalsForAllResults["ga:sessions"]+'</div>';
+                        //26
+                        //returnHTML+= '</div>';
+                        returnHTML+= '<div>Current Monthly Page Views';
+                        //New Comments!
+                        returnHTML+= '</div>';
+                    returnHTML+= '</div>';
+                returnHTML+= '</div>';
+            returnHTML+= '</div>';
+            returnHTML+= '<a href="#">';
+          
+            returnHTML+= '</a>';
+        returnHTML+= '</div>';
+    returnHTML+= '</div>';
+    returnHTML+= '<div class="col-lg-3 col-md-6">';
+        returnHTML+= '<div class="panel panel-green">';
+            returnHTML+= '<div class="panel-heading">';
+                returnHTML+= '<div class="row">';
+                    returnHTML+= '<div class="col-xs-3">';
+                        returnHTML+= '<i class="fa fa-tasks fa-5x">';
+                          returnHTML+= '</i>';
+                    returnHTML+= '</div>';
+                    returnHTML+= '<div class="col-xs-9 text-right">';
+                        returnHTML+= '<div class="huge">'+response.result.totalsForAllResults["ga:pageviews"]+'</div>';
+                       
+                        returnHTML+= '<div>Total Page Views';
+                        //New Tasks!
+                        returnHTML+= '</div>';
+                    returnHTML+= '</div>';
+                returnHTML+= '</div>';
+            returnHTML+= '</div>';
+          
+            returnHTML+= '</a>';
+        returnHTML+= '</div>';
+    returnHTML+= '</div>';
+    returnHTML+= '<div class="col-lg-3 col-md-6">';
+        returnHTML+= '<div class="panel panel-yellow">';
+            returnHTML+= '<div class="panel-heading">';
+                returnHTML+= '<div class="row">';
+                    returnHTML+= '<div class="col-xs-3">';
+                        returnHTML+= '<i class="fa fa-percent fa-5x">';
+                          returnHTML+= '</i>';
+                    returnHTML+= '</div>';
+                    returnHTML+= '<div class="col-xs-9 text-right">';
+                        returnHTML+= '<div class="huge">%55';
+                          //124
+                          returnHTML+= '</div>';
+                        returnHTML+= '<div>Page Bounce Rate';
+                          //New Orders!
+                          returnHTML+= '</div>';
+                    returnHTML+= '</div>';
+                returnHTML+= '</div>';
+            returnHTML+= '</div>';
+            returnHTML+= '<a href="#">';
+                
+            returnHTML+= '</a>';
+        returnHTML+= '</div>';
+    returnHTML+= '</div>';
+    returnHTML+= '<div class="col-lg-3 col-md-6">';
+        returnHTML+= '<div class="panel panel-red">';
+            returnHTML+= '<div class="panel-heading">';
+                returnHTML+= '<div class="row">';
+                    returnHTML+= '<div class="col-xs-3">';
+                        returnHTML+= '<i class="fa fa-clock-o fa-5x">';
+                          returnHTML+= '</i>';
+                    returnHTML+= '</div>';
+                    returnHTML+= '<div class="col-xs-9 text-right">';
+                        returnHTML+= '<div class="huge">1.223 minutes';
+                          //13
+                          returnHTML+= '</div>';
+                        returnHTML+= '<div>Average Session Duration';
+                          //Support Tickets!
+                          returnHTML+= '</div>';
+                    returnHTML+= '</div>';
+                returnHTML+= '</div>';
+            returnHTML+= '</div>';
+            returnHTML+= '<a href="#">';
+                
+            returnHTML+= '</a>';
+        returnHTML+= '</div>';
+    returnHTML+= '</div>';
+returnHTML+= '</div>';
+
+
+
+
     document.getElementById('query-output').value = returnHTML;
     document.getElementById('query-output-graph').innerHTML = returnHTML;
     document.getElementById('query-output-json').value = formattedJson;

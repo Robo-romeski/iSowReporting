@@ -88,10 +88,11 @@ block content
                 .panel-heading
                   .row
                     .col-xs-3
-                      i.fa.fa-tasks.fa-5x
+                      i.fa.fa-usd.fa-5x
                     .col-xs-9.text-right
-                      .huge 12
-                      div New Tasks!
+                      for que in contrib
+                        .huge #{que.amount}
+                      div Total Contributions
                 a(href='#')
                   
                     .clearfix
@@ -102,8 +103,8 @@ block content
                     .col-xs-3
                       i.fa.fa-shopping-cart.fa-5x
                     .col-xs-9.text-right
-                      .huge 124
-                      div New Orders!
+                      .huge 989
+                      div Total Funded Projects
                 a(href='#')
                   
                     .clearfix
@@ -112,13 +113,22 @@ block content
                 .panel-heading
                   .row
                     .col-xs-3
-                      i.fa.fa-support.fa-5x
+                      i.fa.fa-child.fa-5x
                     .col-xs-9.text-right
-                      .huge 13
-                      div Support Tickets!
+                      .huge 904
+                      div Total Children
                 a(href='#')
                   
                     .clearfix
+      .row
+        .col-lg-12
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title
+                i.fa.fa-database.fa-fw
+                |  Analtyic Data
+            .panel-body
+              #query-output-graph
           // /.row
       .row
         .col-lg-12
@@ -129,14 +139,14 @@ block content
                 |  Area Chart
             .panel-body
               #morris-area-chart
-              #query-output-graph
+              
         
        
               // <div id="morris-area-chart"></div>
               button#auth-button(hidden='') Authorize
               //textarea#query-output(cols='80', rows='20')
               //textarea#query-output-json(cols='80', rows='20')
-              #query-output-graph
+              #query-output
 
         // /.row
         .row
